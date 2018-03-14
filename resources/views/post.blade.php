@@ -61,16 +61,25 @@
     <div class="previous">
      <p>Previous</p>
 
+     @if($previousArticle)
 
 
-     <a href=""><i class="fas fa-arrow-left fa-lg"></i> Title - Article 1 with a long text for testing</a>
+     <a href="{{ action('ArticleController@show', $previousArticle->id) }}"><i class="fas fa-arrow-left fa-lg"></i> {{ $previousArticle->title}} - {{ \Illuminate\Support\Str::words($previousArticle->content, 7,'...') }}</a>
+     @endif
+
     </div>
+
     <div class="next">
      <p>Next</p>
 
-     <a href="">Title - Article 3 with a long text for testing <i class="fas fa-arrow-right fa-lg"></i></a>
+     @if($nextArticle)
+
+
+     <a href="{{ action('ArticleController@show', $nextArticle->id) }}">{{ $nextArticle->title}} - {{ \Illuminate\Support\Str::words($nextArticle->content, 7,'...') }}<i class="fas fa-arrow-right fa-lg"></i></a>
+     @endif
 
     </div>
+
    </div>
 
   @endsection

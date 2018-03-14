@@ -588,6 +588,7 @@ text-align: center;
 
 }
 .next a{
+ float: right;
   display: flex;
   align-items: center;
   margin-right: -1rem;

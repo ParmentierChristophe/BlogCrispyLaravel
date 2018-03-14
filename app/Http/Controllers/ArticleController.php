@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles = Article::paginate(5);
+       $articles = Article::orderBy('id','DESC')->paginate(5);
 
       return view( 'home', compact( 'articles') );
     }
@@ -52,10 +52,22 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        if (!Article::find( $id+1)) {
+            $nextArticle = false;
+
+        }
+        if (!Article::find( $id-1)) {
+            $previousArticle = false;
+
+        }
+
         $article = Article::findOrFail( $id );
+        $nextArticle = Article::find( $id+1);
+        $previousArticle = Article::find( $id-1);
+
         $timeToRead= floor(str_word_count(strip_tags($article->content)) / 200);
 
-        return view( 'post', compact( 'article' , 'timeToRead') );
+        return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead') );
     }
 
     /**
