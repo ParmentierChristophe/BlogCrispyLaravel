@@ -14,29 +14,32 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->string('title', 128);
             $table->timestamps();
         });
-        
+
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->string('title', 128);
             $table->integer('user_id')->unsigned();
+            $table->integer('categorie_id')->unsigned();
+            $table->text('content');
+            $table->timestamps();
+
+
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->integer('cat_id')->unsigned();
-            $table->foreign('cat_id')
+
+
+            $table->foreign('categorie_id')
             ->references('id')
             ->on('categories')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->text('content');
-
-            $table->timestamps();
         });
     }
 

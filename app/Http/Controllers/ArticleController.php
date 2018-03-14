@@ -18,11 +18,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles = Article::all();
-       $cats = Categorie::all();
-       $users = User::all();
+       $articles = Article::paginate(5);
 
-      return view( 'home', compact( 'articles', 'cats', 'users') );
+      return view( 'home', compact( 'articles') );
     }
 
     /**
@@ -54,7 +52,10 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::findOrFail( $id );
+        $timeToRead= floor(str_word_count(strip_tags($article->content)) / 200);
+
+        return view( 'post', compact( 'article' , 'timeToRead') );
     }
 
     /**

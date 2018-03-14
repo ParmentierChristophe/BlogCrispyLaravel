@@ -32,9 +32,9 @@
  <!-- NAVBAR -->
  <div class="navbar">
   <div class="container-navbar">
-   <a href="" class="brand"><img class="logo" src="{{asset('images/crispyB.png')}}" alt="Crispy">Crispy</a>
+   <a href="{{ action('ArticleController@index') }}" class="brand"><img class="logo" src="{{asset('images/crispyB.png')}}" alt="Crispy">Crispy</a>
    <ul>
-    <li><a href="">Home</a></li>
+    <li><a href="{{ action('ArticleController@index') }}">Home</a></li>
     <!-- <li><a href="">CATEGORIES <i class="fas fa-angle-down"></i></a></li> -->
 
    </ul>
@@ -58,7 +58,7 @@
 
   <!-- FOOTER -->
   <div class="center">
-   <a href="">
+   <a href="{{ action('ArticleController@index') }}">
     <img class="logo-footer" src="{{asset('images/crispyB.png')}}" alt="">
    </a>
   </div>

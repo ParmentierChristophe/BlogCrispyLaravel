@@ -12,30 +12,25 @@
     <div class="auth-post">
      <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
      <div>
-      <p class="auth-info name"><a href="">Christophe Parmentier</a></p>
+      <p class="auth-info name"><a href="">{{$article->user->name}}</a></p>
       <p class="auth-info">Developper Web - Graphiste Freelance basé à Lille - www.christophe-parmentier.fr</p>
-      <p class="auth-info">4 min read · February 16th 2018</p>
+      <p class="auth-info">{{$timeToRead}} min read · {{ $article->created_at->format('d F Y') }}</p>
      </div>
 
     </div>
    </div>
-   <h1>I'm Title</h1>
-   <p class="text-post">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis <a class="link-post" href="#">nostrud</a> exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   <h1>{{$article->title}}</h1>
+   <p class="text-post">{{$article->content}}
+   <a class="link-post" href="#">consectetur adipisicing</a></p>
 
-   <img src="{{asset('images/test.jpg')}}" alt="">
-   <h2>I'm subtitle</h2>
-   <p class="text-post">Lorem ipsum dolor sit amet, <a class="link-post" href="#">consectetur adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <a class="link-post"
-     href="#">aliquip</a> ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-    est laborum.</p>
 
 
    <div class="post-footer">
     <hr class="hr-post">
     <div class="tag-and-share">
-      <a href="" class="cat-tag-vue">#VueJs</a>
+      <a href="" class="cat-tag-vue">#{{$article->categorie->title}}</a>
       <div class="share">
-        <a href="https://twitter.com/theCrispydesign" class="share-text reseau">
+        <a href="https://twitter.com/intent/tweet?text={{urlencode($article->title)}}%20via%20@theCrispydesign&url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="share-text reseau">
         share on Twitter
             <i class="fab fa-twitter fa-sm"></i>
         </a>

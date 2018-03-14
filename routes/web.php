@@ -14,6 +14,4 @@
 Route::get('/', 'ArticleController@index');
 
 
-Route::get('/post', function () {
-    return view('post');
-});
+Route::get( '{id}', 'ArticleController@show' );
