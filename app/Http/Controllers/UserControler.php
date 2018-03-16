@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categorie;
 use App\User;
 
-use App\Article;
-
-
-class ArticleController extends Controller
+class UserControler extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles = Article::orderBy('id','DESC')->paginate(5);
-
-      return view( 'home', compact( 'articles') );
+        //
     }
 
     /**
@@ -52,34 +46,13 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+     $user = User::findOrFail( $id );
+     $articles = $user->articles->sortByDesc('id');
+     $nbArticles = $articles->count();
 
 
-        if (!Article::find( $id +1)) {
-            $nextArticle = false;
-
-        }
-        if (!Article::find( $id-1)) {
-            $previousArticle = false;
-
-        }
-
-        $article = Article::findOrFail( $id );
-        $nextArticle = Article::where( 'id', '>', $id)->first();
-        $previousArticle = Article::where('id', '<', $id)->orderBy('id' , 'desc')->first();
-
-
-        $timeToRead= round(str_word_count(strip_tags($article->content)) / 200);
-
-            if ($timeToRead < 1) {
-                $timeToRead = 1 ;
-            }
-
-
-
-        return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead') );
+     return view( 'user.user', compact( 'user','articles','nbArticles') );
     }
-
-
 
     /**
      * Show the form for editing the specified resource.

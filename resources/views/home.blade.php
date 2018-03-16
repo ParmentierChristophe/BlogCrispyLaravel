@@ -15,11 +15,11 @@
 
     <p class="name-auth-card-posts">
 
-     <a class="link-auth-posts-card" href="http://christophe-parmentier.fr/">{{$article->user->name}}</a> le {{ $article->created_at->format('d F Y') }}
+     <a class="link-auth-posts-card" href="{{ action('UserControler@show',  $article->user->id)}}">{{$article->user->name}}</a> le {{ $article->created_at->format('d F Y') }}
     </p>
    </div>
 
-    <a href="" class="{{$article->categorie->title}} ">#{{$article->categorie->title}}</a>
+    <a href="{{ action('CategoryControler@show',  $article->categorie->id)}}" class="{{$article->categorie->title}} ">#{{$article->categorie->title}}</a>
 
    <a class="link-card-post2" href="{{ action('ArticleController@show',  $article->id)}}">
   </a>
