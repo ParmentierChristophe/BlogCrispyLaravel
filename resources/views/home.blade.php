@@ -19,7 +19,7 @@
     </p>
    </div>
 
-    <a href="" class="cat-tag-vue">#{{$article->categorie->title}}</a>
+    <a href="" class="{{$article->categorie->title}} ">#{{$article->categorie->title}}</a>
 
    <a class="link-card-post2" href="{{ action('ArticleController@show',  $article->id)}}">
   </a>

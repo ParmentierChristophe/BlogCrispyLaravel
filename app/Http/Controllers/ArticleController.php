@@ -52,7 +52,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        if (!Article::find( $id+1)) {
+
+
+        if (!Article::find( $id +1)) {
             $nextArticle = false;
 
         }
@@ -62,10 +64,15 @@ class ArticleController extends Controller
         }
 
         $article = Article::findOrFail( $id );
-        $nextArticle = Article::find( $id+1);
-        $previousArticle = Article::find( $id-1);
-
+        $nextArticle = Article::where( 'id', '>', $id)->first();
+        $previousArticle = Article::where('id', '<', $id)->orderBy('id' , 'desc')->first();
         $timeToRead= floor(str_word_count(strip_tags($article->content)) / 200);
+
+            if ($timeToRead < 1) {
+                $timeToRead = 1 ;
+            }
+
+
 
         return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead') );
     }

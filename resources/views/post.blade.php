@@ -20,15 +20,17 @@
     </div>
    </div>
    <h1>{{$article->title}}</h1>
-   <p class="text-post">{{$article->content}}
-   <a class="link-post" href="#">consectetur adipisicing</a></p>
+  <div class="markdown">
+   <p class="text-post">{!! Markdown::convertToHtml($article->content)!!}
 
 
+
+  </div>
 
    <div class="post-footer">
     <hr class="hr-post">
     <div class="tag-and-share">
-      <a href="" class="cat-tag-vue">#{{$article->categorie->title}}</a>
+      <a href="" class="{{$article->categorie->title}}">#{{$article->categorie->title}}</a>
       <div class="share">
         <a href="https://twitter.com/intent/tweet?text={{urlencode($article->title)}}%20via%20@theCrispydesign&url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="share-text reseau">
         share on Twitter

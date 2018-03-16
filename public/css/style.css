@@ -310,7 +310,7 @@ li {
  bottom: 0;
 }
 
-.cat-tag-laravel
+.Laravel
 {
   position: relative;
   z-index: 1000;
@@ -321,7 +321,7 @@ li {
   transition: 0.5s;
 }
 
-.cat-tag-react
+.ReactJs
 {
   position: relative;
   z-index: 1000;
@@ -332,7 +332,7 @@ li {
   transition: 0.5s;
 }
 
-.cat-tag-vue
+.VueJs
 {
   position: relative;
   z-index: 1000;
@@ -465,23 +465,39 @@ li {
  line-height: 1.3;
 }
 
-.link-post {
+.markdown a {
  color: #251F6E;
  font-weight: bold;
  border-bottom: 3px solid #CADCFC;
  transition: 0.2s;
 }
+.markdown ul {
 
-.link-post:hover {
+  list-style-image: none;
+  display: block;
+}
+
+.markdown li {
+
+  list-style:initial;
+}
+
+.markdown a:hover {
   opacity: 1;
  background-color: #CADCFC;
  border-bottom: 3px solid #CADCFC;
 }
 
-
-.text-post{
+.markdown blockquote{
+  border-left: 4px solid #747574;
+padding-left: 20px;
+font-weight: 400;
+font-style: italic;
+color: #747574;
+}
+.markdown p{
   font-family: 'Spectral', serif;
-font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 img {
