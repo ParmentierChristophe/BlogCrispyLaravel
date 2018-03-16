@@ -18,3 +18,4 @@ Route::get( '{id}', 'ArticleController@show' );
 
 Route::get('/user/{id}', 'UserControler@show');
 Route::get('/category/{id}', 'CategoryControler@show');
+Route::post('/', 'NewsletterController@store');

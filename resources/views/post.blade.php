@@ -5,7 +5,11 @@
 
  <!-- POSTS -->
  <div class="container-post">
-
+   @if (session('status'))
+       <div class="status">
+           <p>{{ session('status') }}</p>
+       </div>
+   @endif
 
   <div class="post">
    <div class="header-post">
@@ -30,7 +34,7 @@
    <div class="post-footer">
     <hr class="hr-post">
     <div class="tag-and-share">
-      <a href="" class="{{$article->categorie->title}}">#{{$article->categorie->title}}</a>
+      <a href="{{ action('CategoryControler@show',  $article->categorie->id)}}" class="{{$article->categorie->title}}">#{{$article->categorie->title}}</a>
       <div class="share">
         <a href="https://twitter.com/intent/tweet?text={{urlencode($article->title)}}%20via%20@theCrispydesign&url={{ urlencode(Request::fullUrl()) }}" target="_blank" class="share-text reseau">
         share on Twitter
@@ -44,8 +48,10 @@
     <p class="enjoy">Enjoyed this post? Receive the next one in your inbox!
     </p>
 
-    <form class="form-post" action="index.html" method="post">
-     <input class="input-post" placeholder="you@email.com" type="email" name="" value="">
+    <form class="form-post" action="{{ action('NewsletterController@store') }}" method="post">
+     {{ csrf_field() }}
+
+     <input class="input-post" placeholder="you@email.com" type="email" name="user_email" value="">
      <input class="btn-submit" type="submit" name="" value="Subscribe">
     </form>
    </div>
