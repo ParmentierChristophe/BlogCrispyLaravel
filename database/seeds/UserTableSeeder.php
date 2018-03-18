@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
 use App\User;
 
 class UserTableSeeder extends Seeder
@@ -19,14 +21,14 @@ class UserTableSeeder extends Seeder
         [
             'name'      => 'Christophe Parmentier',
             'email'     => 'admin@admin.com',
-            'password'  => 'admin',
+            'password'  => bcrypt('123456'),
             'created_at' => date( 'Y-m-d H:i:s' ),
             'updated_at' => date( 'Y-m-d H:i:s' ),
         ],
         [
             'name'      => 'John Doe',
             'email'     => 'johndoe@admin.com',
-            'password'  => 'admin',
+            'password'  => bcrypt('123456'),
             'created_at' => date( 'Y-m-d H:i:s' ),
             'updated_at' => date( 'Y-m-d H:i:s' ),
         ],

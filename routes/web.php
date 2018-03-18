@@ -12,12 +12,16 @@
 */
 
 Route::get('/', 'ArticleController@index');
-Route::get('/connect', function () {
-    return view('connexion.connexion');
-});
-
+Route::get('/login', 'AuthController@login');
+Route::post( '/login', 'AuthController@postLogin' );
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get( '{id}', 'ArticleController@show' );
 
 Route::get('/user/{id}', 'UserControler@show');
 Route::get('/category/{id}', 'CategoryControler@show');
 Route::post('/', 'NewsletterController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
