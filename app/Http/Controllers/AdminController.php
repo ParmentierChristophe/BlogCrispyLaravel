@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -11,10 +12,11 @@ class AdminController extends Controller
   {
       $this->middleware('auth')->except('logout');
   }
-  
+
  public function index()
  {
+   $articles = Auth::user()->articles->sortByDesc('id');
 
-  return view( 'admin.home');
+  return view( 'admin.home', compact('articles'));
  }
 }

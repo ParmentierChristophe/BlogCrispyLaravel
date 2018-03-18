@@ -36,6 +36,10 @@
    <a href="{{ action('ArticleController@index') }}" class="brand"><img class="logo" src="{{asset('images/crispyB.png')}}" alt="Crispy">Crispy</a>
    <ul>
     <li><a href="{{ action('ArticleController@index') }}">Home</a></li>
+    @if (Auth::check())
+    <li><a href="{{ action('ArticleController@index') }}">Create</a></li>
+
+    @endif
     <!-- <li><a href="">CATEGORIES <i class="fas fa-angle-down"></i></a></li> -->
 
    </ul>
