@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'ArticleController@index');
-
+Route::get('/connect', function () {
+    return view('connexion.connexion');
+});
 
 Route::get( '{id}', 'ArticleController@show' );
 

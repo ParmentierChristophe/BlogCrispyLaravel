@@ -282,6 +282,15 @@ li {
   margin: 20px;
 }
 
+
+.alert-status
+{
+ background-color: #F85142;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
 .container-posts {
  display: flex;
  flex-direction: column;

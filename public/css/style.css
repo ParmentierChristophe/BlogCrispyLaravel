@@ -284,6 +284,17 @@ li {
   color: #fff;
 }
 
+.alert-status
+{
+ background-color: #F85142;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 20px;
+  color: #fff;
+
+}
+
+
 .container-posts {
   width: 80%;
   margin: 0 auto;

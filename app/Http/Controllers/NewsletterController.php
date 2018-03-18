@@ -15,9 +15,16 @@ class NewsletterController extends Controller
   */
  public function store(Request $request)
  {
+
+   $this->validate( $request,  [
+     'user_email' => 'required|max:255'
+ ]);
+ 
   if ( ! Newsletter::isSubscribed($request->user_email) ) {
 
-       Newsletter::subscribe($request->user_email);
+      $test =  Newsletter::subscribe($request->user_email);
+
+
        return back()->with('status', 'thanks for subscription !');
 
       }

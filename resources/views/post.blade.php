@@ -11,6 +11,16 @@
        </div>
    @endif
 
+   @if ($errors->any())
+    <div class="alert-status">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
   <div class="post">
    <div class="header-post">
     <div class="auth-post">
@@ -51,7 +61,7 @@
     <form class="form-post" action="{{ action('NewsletterController@store') }}" method="post">
      {{ csrf_field() }}
 
-     <input class="input-post" placeholder="you@email.com" type="email" name="user_email" value="">
+     <input class="input-post" placeholder="you@email.com" type="email" name="user_email" value="" required>
      <input class="btn-submit" type="submit" name="" value="Subscribe">
     </form>
    </div>
