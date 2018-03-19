@@ -633,6 +633,18 @@ text-align: center;
   color: #fff;
 }
 
+.btn-submit-disc{
+ border: 1px solid #F85142;
+ border-radius: 2px;
+ padding: 0.7rem;
+ color: #F85142;
+ font-weight: bold;
+ transition: 0.5s;
+}
+.btn-submit-disc:hover{
+  background-color: #F85142;
+  color: #fff;
+}
 
 /* Footer Post */
 .global-previous-next
@@ -700,6 +712,65 @@ margin-right: 0.5rem;
   width: 70px;
 
 }
+
+
+/* ADMIN */
+
+.modi-and-tag {
+ display: flex;
+ align-items: center;
+}
+
+.modif-and-del {
+  padding: 45px;
+display: flex;
+justify-content: space-between;
+width: 20%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 25px;
+}
+
+.input_sub {
+ position: relative;
+
+ margin-right: 1em;
+
+}
+
+.pencil:hover {
+  color:#47B784 ;
+}
+.ban:hover{
+  color:#FA3C63 ;
+
+}
+
+
+.input_sub {
+  position: absolute;
+  z-index: 10000;
+
+    border: 0px solid #fff;
+
+
+}
+
+/* span {
+    position: relative;
+}
+
+span:after {
+    font-family: 'FontAwesome';
+    content: "\f05e";
+    font-size: 20px;
+    position: absolute;
+    z-index: 100;
+    right: 20px;
+    top: 1px;
+    pointer-events: none;
+} */
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -571,6 +571,14 @@ text-align: center;
   color: #fff;
 }
 
+.btn-submit-disc{
+ border: 1px solid #F85142;
+ border-radius: 2px;
+ padding: 0.7rem;
+ color: #F85142;
+ font-weight: bold;
+ transition: 0.5s;
+}
 
 /* Footer Post */
 .global-previous-next

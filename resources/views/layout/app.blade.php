@@ -15,6 +15,9 @@
  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -36,13 +39,17 @@
    <a href="{{ action('ArticleController@index') }}" class="brand"><img class="logo" src="{{asset('images/crispyB.png')}}" alt="Crispy">Crispy</a>
    <ul>
     <li><a href="{{ action('ArticleController@index') }}">Home</a></li>
-    @if (Auth::check())
+    @auth
+    <li><a href="{{ action('AdminController@index') }}">Admin</a></li>
+
     <li><a href="{{ action('ArticleController@index') }}">Create</a></li>
 
-    @endif
+    @endauth
     <!-- <li><a href="">CATEGORIES <i class="fas fa-angle-down"></i></a></li> -->
 
    </ul>
+   <?php if (!Auth::check()) { ?>
+
    <div>
     <a href="https://github.com/ParmentierChristophe" class="reseau">
       <i class="fab fa-github"></i>
@@ -54,6 +61,7 @@
       <i class="fab fa-linkedin-in"></i>
     </a>
    </div>
+   <?php } ?>
   </div>
  </div>
 
