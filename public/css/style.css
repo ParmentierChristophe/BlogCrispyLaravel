@@ -640,12 +640,27 @@ text-align: center;
  color: #F85142;
  font-weight: bold;
  transition: 0.5s;
+ margin: 1em;
+
 }
 .btn-submit-disc:hover{
   background-color: #F85142;
   color: #fff;
 }
 
+.btn-submit-edit{
+  border: 1px solid #47B784;
+  border-radius: 2px;
+  padding: 0.7rem;
+  color: #47B784;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-submit-edit:hover{
+  background-color: #47B784;
+  color: #fff;
+}
 /* Footer Post */
 .global-previous-next
 {

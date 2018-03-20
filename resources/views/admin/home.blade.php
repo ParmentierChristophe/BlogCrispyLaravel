@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-post">
-  <h2 class="Laravel">Espace d'administration.</h2>
+  <h2 class="VueJs">Espace d'administration.</h2>
 
  <div class="post">
 
@@ -13,13 +13,17 @@
   <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
   <div>
 
-    <p class="auth-info name"><a href="">{{Auth::user()->name}}</a></p>
+    <p class="auth-info name">{{Auth::user()->name}}</p>
 
    <p class="auth-info">Developper Web - Graphiste Freelance basé à Lille - www.christophe-parmentier.fr</p>
   </div>
   <form class="form-post" action="{{ action('\App\Http\Controllers\Auth\LoginController@logout')}}" method="patch">
 
    <input class="btn-submit-disc" type="submit" name="" value="Log Out">
+  </form>
+  <form class="form-post" action="" method="patch">
+
+   <input class="btn-submit-edit" type="submit" name="" value="Edit">
   </form>
  </div>
 </div>
@@ -57,7 +61,7 @@
                </button>
                </form>
 
-               <form class="" action="{{ action('ArticleController@destroy', $article->id)}}" method="post">
+               <form class="FormDeleteTime" action="{{ action('ArticleController@destroy', $article->id)}}" method="post">
                  @csrf
                  <input type="hidden" name="_method" value="DELETE">
                  <button class="input_sub ban" value=" " type="submit">

@@ -103,6 +103,21 @@
   ga('create', 'UA-XXXXX-X', 'auto');
   ga('send', 'pageview');
  </script>
+
+ <script type="text/javascript">
+  $(".FormDeleteTime").submit(function (event) {
+              var x = confirm("Are you sure you want to delete?");
+                 if (x) {
+                     return true;
+                 }
+                 else {
+
+                     event.preventDefault();
+                     return false;
+                 }
+
+             });
+</script>
 </body>
 
 </html>

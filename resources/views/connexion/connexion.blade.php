@@ -11,7 +11,10 @@
 
 
    <div class="post-footer">
+     @if ($error = $errors->first('password'))
+     <h3 class="Laravel">{{$error}}</h3>
 
+     @endif
      <h1>Connexion</h1>
     <form class="form-post" action="" method="post">
       @csrf
