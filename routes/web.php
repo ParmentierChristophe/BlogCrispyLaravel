@@ -18,6 +18,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get( '{id}', 'ArticleController@show' );
 Route::delete('article/{id}', 'ArticleController@destroy');
+route::get('admin/{id}/edit', 'AuthController@edit');
 
 
 Route::get('/user/{id}', 'UserControler@show');

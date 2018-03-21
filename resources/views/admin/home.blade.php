@@ -21,10 +21,10 @@
 
    <input class="btn-submit-disc" type="submit" name="" value="Log Out">
   </form>
-  <form class="form-post" action="" method="patch">
+  <div class="form-post">
 
-   <input class="btn-submit-edit" type="submit" name="" value="Edit">
-  </form>
+   <a class="btn-submit-edit" href="{{ action('AuthController@edit', Auth::user())}}">Edit</a>
+ </div>
  </div>
 </div>
 </div>
