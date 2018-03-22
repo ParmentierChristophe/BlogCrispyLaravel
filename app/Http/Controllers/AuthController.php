@@ -7,6 +7,7 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\User;
 use File;
@@ -58,19 +59,15 @@ class AuthController extends Controller
      */
     public function edit(User $user)
     {
+
       if (\Auth::check())
        {
+
+         $user = Auth::user();
+         $this->authorize('update', $user);
+
       return view('user.edit',compact('user'));
     }
-      //
-      // if (\Auth::check())
-      // {
-      //   return view('user.edit',compact('user'));
-      // }
-      // else
-      // {
-      //   return view('user.edit');
-      // }
     }
 
     /**
@@ -80,8 +77,12 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user = Auth::user();
+        $user->update($request->all());
+        return redirect()->back()->with('success', 'User updated successfully');
+
+
     }
 }
