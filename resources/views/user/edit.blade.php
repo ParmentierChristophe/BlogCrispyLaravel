@@ -29,7 +29,7 @@
 </div>
 </form>
 
-<!-- <div class="input_edit_profil">
+ <div class="input_edit_profil">
 
   <label for="">New password :</label>
   <input class="input-post" type="password" name="" value="">
@@ -37,15 +37,15 @@
 <div class="input_edit_profil">
 
   <label for="">Short description :</label>
-  <textarea class="input-post" name="" value="">
+  <textarea class="input-post" name="">{{Auth::user()->userDescription->description}}
     </textarea>
 </div>
 
 <div class="input_edit_profil">
 
   <label for="">Website :</label>
-  <input class="input-post" type="text" name="" value="">
-</div> -->
+  <input class="input-post" type="text" name="" value="{{Auth::user()->userDescription->website}}">
+</div>
 
 </div>
 

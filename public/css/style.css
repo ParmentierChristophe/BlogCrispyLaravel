@@ -791,6 +791,11 @@ width: 20%;
 .input_edit_profil * {
   vertical-align: middle;
 }
+
+.input_edit_profil textarea {
+ height: 150px;
+}
+
 /* span {
     position: relative;
 }

@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use Session;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use App\User;
-use File;
 
 class AuthController extends Controller
 {

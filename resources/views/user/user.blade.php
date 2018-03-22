@@ -10,7 +10,7 @@
   <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
   <div>
    <p class="auth-info name"><a href="">{{$user->name}}</a></p>
-   <p class="auth-info">Developper Web - Graphiste Freelance basé à Lille - www.christophe-parmentier.fr</p>
+   <p class="auth-info">{{$user->userDescription->description}} - <a href="http://{{$user->userDescription->website}}"> {{$user->userDescription->website}}</a></p>
    <p class="auth-info">{{$nbArticles}} articles</p>
   </div>
 

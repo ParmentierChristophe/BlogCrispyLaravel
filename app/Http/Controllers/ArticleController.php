@@ -64,6 +64,7 @@ class ArticleController extends Controller
         }
 
         $article = Article::findOrFail( $id );
+        $user = $article->user;
         $nextArticle = Article::where( 'id', '>', $id)->first();
         $previousArticle = Article::where('id', '<', $id)->orderBy('id' , 'desc')->first();
 
@@ -76,7 +77,7 @@ class ArticleController extends Controller
 
 
 
-        return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead') );
+        return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead','user') );
     }
 
 

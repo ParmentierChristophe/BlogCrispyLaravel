@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->timestamps();
         });
 
+
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 128);
@@ -41,6 +42,26 @@ class CreateArticlesTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });
+
+        Schema::create('user_descriptions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('description', 128);
+            $table->string('avatar')->default('default.jpg');
+            $table->string('website', 128);
+            $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+        });
+
+
+
+
     }
 
     /**
@@ -50,6 +71,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('categories');
     }
 }

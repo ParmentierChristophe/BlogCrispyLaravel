@@ -20,7 +20,7 @@
 
     <p class="auth-info name">{{Auth::user()->name}}</p>
 
-   <p class="auth-info">Developper Web - Graphiste Freelance basé à Lille - www.christophe-parmentier.fr</p>
+   <p class="auth-info">{{Auth::user()->userDescription->description}} - <a href="http://{{Auth::user()->userDescription->website}}"> {{Auth::user()->userDescription->website}}</a></p>
   </div>
   <form class="form-post" action="{{ action('\App\Http\Controllers\Auth\LoginController@logout')}}" method="patch">
 

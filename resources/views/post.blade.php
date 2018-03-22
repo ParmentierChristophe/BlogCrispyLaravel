@@ -27,7 +27,7 @@
      <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
      <div>
       <p class="auth-info name"><a href="{{ action('UserControler@show',  $article->user->id)}}">{{$article->user->name}}</a></p>
-      <p class="auth-info">Developper Web - Graphiste Freelance basé à Lille - www.christophe-parmentier.fr</p>
+      <p class="auth-info">{{$user->userDescription->description}} - <a href="http://{{$user->userDescription->website}}"> {{$user->userDescription->website}}</a></p>
       <p class="auth-info">{{$timeToRead}} min read · {{ $article->created_at->format('d F Y') }}</p>
      </div>
 
