@@ -776,8 +776,111 @@ width: 20%;
 
 
 }
+/* edit profil */
 
 
+/* EDIT */
+.img-section-edit
+{
+  position: relative;
+  max-width: 200px;
+margin: 0 auto;
+}
+.img-edit-profile
+{
+ max-width: 200px;
+ height: auto;
+ border-radius:100%;
+}
+
+.icon-edit-img
+{
+    position: absolute;
+      right: 0px;
+      bottom: 40px;
+      background: #58ACFA;
+      cursor: pointer;
+      padding: 10px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      overflow: hidden;
+      border-radius: 50%;
+}
+
+
+.edit-profile-input-name
+{
+font-size: 1.51572rem;
+font-weight: 700;
+text-align: center;
+width: 100%;
+border: 0px;
+margin-top: 1em;
+outline: none;
+}
+
+.edit-profile-input-desc
+{
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  max-height: 50px;
+  border: 0px;
+  margin-top: 1em;
+  outline: none;
+  resize: none;
+
+}
+
+
+.edit-profile-input-site
+{
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  border: 0px;
+  margin-top: 1em;
+  outline: none;
+}
+
+.submit-edit-profile {
+  margin: 1em auto;
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1000;
+  background-color: #5CC9F5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 40px;
+  color: #fff;
+  transition: 0.5s;
+  border: 0px solid #000;
+}
+.submit-edit-profile:hover{
+  opacity: 0.5;
+}
+
+.input-file
+{
+  width: 100%;
+  z-index: 100000;
+position: absolute;
+height: 100%;
+opacity: 0;
+cursor: pointer;
+}
+
+.img-section-edit:hover
+{
+opacity: 0.5;
+transition: 0.5s;
+
+}
+
+/*
 .input_edit_profil {
   width: 45%;
   margin: 1em auto;
@@ -794,7 +897,7 @@ width: 20%;
 
 .input_edit_profil textarea {
  height: 150px;
-}
+} */
 
 /* span {
     position: relative;

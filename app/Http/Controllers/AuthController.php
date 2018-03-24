@@ -77,7 +77,9 @@ class AuthController extends Controller
     public function update(Request $request, User $user)
     {
         $user = Auth::user();
-        $user->update($request->all());
+        $userDesc = Auth::user()->userDescription;
+        $user->update($request->except('description','website'));
+        $userDesc->update($request->only('description','website'));
         return redirect()->back()->with('success', 'User updated successfully');
 
 

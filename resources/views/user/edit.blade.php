@@ -5,47 +5,57 @@
 
 
 
+<div class="container-posts">
+
+
 <div class="container-post">
-  @if (session('success'))
-      <div class="VueJs">
-          {{ session('success') }}
+  <h2 class="ReactJs">Editer votre profil</h2>
+
+</div>
+
+
+  <div class="admin-posts-card">
+   <div class="row center-xs">
+
+    <div class="col-xs-12
+                     col-sm-12
+                     col-md-8
+                     col-lg-6">
+     <div class="box">
+
+      <div class="card-posts">
+       <!-- Header Picture -->
+       <div class="head-card-edit">
+        <div class="img-section-edit">
+       <form action="{{ action('AuthController@update', Auth::user())}}" method="post">
+         @csrf
+
+         <input class="input-file" type="file" name="">
+          <i class="fas fa-pencil-alt icon-edit-img"></i>
+          <img class="img-edit-profile" src="{{asset('images/pp.jpg')}}" alt="" />
+        </div>
+       </div>
+
+       <!-- Name -->
+
+        <input class="edit-profile-input-name" type="text" name="name" value="{{Auth::user()->name}}">
+                <input class="edit-profile-input-site" type="text" name="email" value="{{Auth::user()->email}}">
+        <textarea class="edit-profile-input-desc" name="description">{{Auth::user()->userDescription->description}}</textarea>
+        <input class="edit-profile-input-site" type="text" name="website" value="{{Auth::user()->userDescription->website}}">
+
+
+        <div class="card-footer">
+         <input class="submit-edit-profile" type="submit" name="" value="Update">
+        </div>
+       </form>
       </div>
-  @endif
-  <form class="" action="{{ action('AuthController@update', Auth::user())}}" method="post">
-    @csrf
+     </div>
+    </div>
 
-<div class="input_edit_profil">
-  <label for="">Name :</label>
-  <input class="input-post" type="text" name="name" value="{{Auth::user()->name}}">
-</div>
-<div class="input_edit_profil">
 
-  <label for="">Email :</label>
-  <input class="input-post" type="text" name="email" value="{{Auth::user()->email}}">
-</div>
-<div class="input_edit_profil">
+   </div>
+  </div>
 
-<input class="btn-submit" type="submit" name="" value="Update">
-</div>
-</form>
-
- <div class="input_edit_profil">
-
-  <label for="">New password :</label>
-  <input class="input-post" type="password" name="" value="">
-</div>
-<div class="input_edit_profil">
-
-  <label for="">Short description :</label>
-  <textarea class="input-post" name="">{{Auth::user()->userDescription->description}}
-    </textarea>
-</div>
-
-<div class="input_edit_profil">
-
-  <label for="">Website :</label>
-  <input class="input-post" type="text" name="" value="{{Auth::user()->userDescription->website}}">
-</div>
 
 </div>
 
