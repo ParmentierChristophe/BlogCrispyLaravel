@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Image;
 
 class AuthController extends Controller
 {
@@ -79,7 +80,16 @@ class AuthController extends Controller
         $user = Auth::user();
         $userDesc = Auth::user()->userDescription;
         $user->update($request->except('description','website'));
+        if ($request->hasFile('avatar')) {
+          $avatar = $request->file('avatar');
+          $filename = time() . '.' . $avatar->getClientOriginalExtension();
+          Image::make($avatar)->resize(300,300)->save(public_path( 'uploads/avatar/' . $filename));
+          $userDesc->avatar = $filename;
+
+        }
+
         $userDesc->update($request->only('description','website'));
+
         return redirect()->back()->with('success', 'User updated successfully');
 
 

@@ -27,12 +27,12 @@
        <!-- Header Picture -->
        <div class="head-card-edit">
         <div class="img-section-edit">
-       <form action="{{ action('AuthController@update', Auth::user())}}" method="post">
+       <form enctype="multipart/form-data" action="{{ action('AuthController@update', Auth::user())}}" method="post">
          @csrf
 
-         <input class="input-file" type="file" name="">
+         <input class="input-file" type="file" name="avatar">
           <i class="fas fa-pencil-alt icon-edit-img"></i>
-          <img class="img-edit-profile" src="{{asset('images/pp.jpg')}}" alt="" />
+          <img class="img-edit-profile" src="/uploads/avatar/{{ Auth::user()->userDescription->avatar}}" alt="" />
         </div>
        </div>
 

@@ -11,7 +11,7 @@
    <p>{{ \Illuminate\Support\Str::words($article->content, 21,'...') }}</p>
 
    <div class="card-footer">
-    <img class="img-card-footer" src="{{asset('images/pp.jpg')}}" alt="" />
+    <img class="img-card-footer" src="/uploads/avatar/{{ $article->user->userDescription->avatar }}" alt="" />
 
     <p class="name-auth-card-posts">
 

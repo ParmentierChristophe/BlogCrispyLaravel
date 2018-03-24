@@ -15,7 +15,7 @@
 <div class="header-post">
 
  <div class="auth-post">
-  <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
+  <img class="photo-auth-post" src="/uploads/avatar/{{ Auth::user()->userDescription->avatar}}" alt="">
   <div>
 
     <p class="auth-info name">{{Auth::user()->name}}</p>

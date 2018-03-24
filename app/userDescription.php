@@ -8,7 +8,7 @@ class userDescription extends Model
 {
 
  protected $fillable = [
-     'description', 'website',
+     'description', 'website','avatar'
  ];
 
  public function user() {

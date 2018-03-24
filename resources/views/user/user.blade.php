@@ -7,7 +7,7 @@
  <div class="post">
 <div class="header-post">
  <div class="auth-post">
-  <img class="photo-auth-post" src="{{asset('images/pp.jpg')}}" alt="">
+  <img class="photo-auth-post" src="/uploads/avatar/{{ $user->userDescription->avatar }}" alt="">
   <div>
    <p class="auth-info name"><a href="">{{$user->name}}</a></p>
    <p class="auth-info">{{$user->userDescription->description}} - <a href="http://{{$user->userDescription->website}}"> {{$user->userDescription->website}}</a></p>

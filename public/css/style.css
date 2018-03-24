@@ -625,6 +625,7 @@ text-align: center;
   border-radius: 2px;
   padding: 0.7rem;
   color: #251F6E;
+  background-color: transparent;
   font-weight: bold;
   transition: 0.5s;
 }
@@ -754,7 +755,7 @@ width: 20%;
 
 .input_sub {
  position: relative;
-
+  background-color: transparent;
  margin-right: 1em;
 
 }
