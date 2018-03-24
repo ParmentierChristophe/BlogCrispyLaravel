@@ -30,7 +30,13 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        if (\Auth::check())
+       {
+        $categories = Categorie::all();
+        return view( 'articles.create', compact('categories') );
+        } else {
+        return redirect()->intended('login');
+        }
     }
 
     /**
@@ -90,7 +96,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view( 'article.edit' );
+
     }
 
     /**

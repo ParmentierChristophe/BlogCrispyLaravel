@@ -42,7 +42,7 @@
     @auth
     <li><a href="{{ action('AdminController@index') }}">Admin</a></li>
 
-    <li><a href="{{ action('ArticleController@index') }}">Create</a></li>
+    <li><a href="{{ action('ArticleController@create') }}">Create</a></li>
 
     @endauth
     <!-- <li><a href="">CATEGORIES <i class="fas fa-angle-down"></i></a></li> -->
@@ -80,6 +80,9 @@
 
 
  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+ <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+
+<script>
  <script>
   window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
  </script>
@@ -117,6 +120,9 @@
                  }
 
              });
+
+autosize(document.getElementById("note"));
+
 </script>
 </body>
 

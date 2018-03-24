@@ -881,39 +881,68 @@ transition: 0.5s;
 
 }
 
-/*
-.input_edit_profil {
-  width: 45%;
+/* CREATE ARTICLE */
+.create-article-form{
+  width: 100%;
+}
+
+.title-input-create {
+  font-size: 2rem;
+  font-weight: 700;
+  width: 100%;
+  border: 0px;
+  margin-top: 1em;
+  outline: none;
+  background-color: transparent;
+}
+
+.content-input-create {
+  min-height: 50px;
+  mac
+  width: 100%;
+  border: 0px;
+  margin-top: 1em;
+  outline: none;
+  background-color: transparent;
+}
+
+#note {
+	width:100%;
+	box-sizing:border-box;
+	display:block;
+	max-width:100%;
+	font-smoothing:subpixel-antialiased;
+  margin-bottom: 1em;
+
+}
+
+.submit-article {
   margin: 1em auto;
-  text-align: center;
-
-}
-.input_edit_profil label {
-  font-size: 1.3em;
-}
-
-.input_edit_profil * {
-  vertical-align: middle;
-}
-
-.input_edit_profil textarea {
- height: 150px;
-} */
-
-/* span {
-    position: relative;
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1000;
+  background-color: #4AF2A1;
+  padding: 0.5rem 1.3rem;
+  border-radius: 40px;
+  color: #fff;
+  transition: 0.5s;
+  border: 0px solid #000;
 }
 
-span:after {
-    font-family: 'FontAwesome';
-    content: "\f05e";
-    font-size: 20px;
-    position: absolute;
-    z-index: 100;
-    right: 20px;
-    top: 1px;
-    pointer-events: none;
-} */
+.submit-article:hover {
+  opacity: 0.5;
+
+}
+
+select{
+ -webkit-appearance: none;
+border: none;
+background-color: #F5F3F7;
+font-size: 1.3em;
+font-weight: 700;
+padding: 0.2em;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

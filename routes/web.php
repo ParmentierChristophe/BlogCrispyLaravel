@@ -20,7 +20,7 @@ Route::get( '{id}', 'ArticleController@show' );
 Route::delete('article/{id}', 'ArticleController@destroy');
 route::get('admin/{id}/edit', 'AuthController@edit');
 route::post('admin/{id}/edit', 'AuthController@update');
-
+route::get('admin/create-article' ,'ArticleController@create');
 
 Route::get('/user/{id}', 'UserControler@show');
 Route::get('/category/{id}', 'CategoryControler@show');
