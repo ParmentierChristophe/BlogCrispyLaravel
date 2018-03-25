@@ -58,9 +58,8 @@
        <div class="modi-and-tag">
              <a href="{{ action('CategoryControler@show',  $article->categorie->id)}}" class="{{$article->categorie->title}} ">#{{$article->categorie->title}}</a>
              <div class="modif-and-del">
-               <form class="" action="" method="post">
+               <form class="" action="{{ action('ArticleController@edit', $article->id)}}" method="get">
                  @csrf
-                 <input type="hidden" name="_method" value="DELETE">
                  <button class="input_sub pencil" type="submit">
                  <i class="fas fa-pencil-alt"></i>
                </button>

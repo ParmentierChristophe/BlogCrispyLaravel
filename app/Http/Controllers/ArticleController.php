@@ -8,7 +8,6 @@ use App\User;
 
 use App\Article;
 
-
 class ArticleController extends Controller
 {
     /**
@@ -18,9 +17,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-       $articles = Article::orderBy('id','DESC')->paginate(5);
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
 
-      return view( 'home', compact( 'articles') );
+        return view('home', compact('articles'));
     }
 
     /**
@@ -30,12 +29,11 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        if (\Auth::check())
-       {
-        $categories = Categorie::all();
-        return view( 'articles.create', compact('categories') );
+        if (\Auth::check()) {
+            $categories = Categorie::all();
+            return view('articles.create', compact('categories'));
         } else {
-        return redirect()->intended('login');
+            return redirect()->intended('login');
         }
     }
 
@@ -47,7 +45,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (\Auth::check()) {
+            $post = Article::create($request->all());
+            return redirect()->intended('admin')->with('success', 'Article created');
+        } else {
+            return redirect()->intended('login');
+        }
     }
 
     /**
@@ -58,32 +61,28 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-
-
-        if (!Article::find( $id +1)) {
+        if (!Article::find($id +1)) {
             $nextArticle = false;
-
         }
-        if (!Article::find( $id-1)) {
+        if (!Article::find($id-1)) {
             $previousArticle = false;
-
         }
 
-        $article = Article::findOrFail( $id );
+        $article = Article::findOrFail($id);
         $user = $article->user;
-        $nextArticle = Article::where( 'id', '>', $id)->first();
-        $previousArticle = Article::where('id', '<', $id)->orderBy('id' , 'desc')->first();
+        $nextArticle = Article::where('id', '>', $id)->first();
+        $previousArticle = Article::where('id', '<', $id)->orderBy('id', 'desc')->first();
 
 
         $timeToRead= round(str_word_count(strip_tags($article->content)) / 200);
 
-            if ($timeToRead < 1) {
-                $timeToRead = 1 ;
-            }
+        if ($timeToRead < 1) {
+            $timeToRead = 1 ;
+        }
 
 
 
-        return view( 'post', compact( 'article' , 'nextArticle','previousArticle','timeToRead','user') );
+        return view('post', compact('article', 'nextArticle', 'previousArticle', 'timeToRead', 'user'));
     }
 
 
@@ -96,8 +95,13 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return view( 'article.edit' );
+        if (\Auth::check()) {
+            $categories = Categorie::all();
 
+            $findarticle = Article::find($id);
+
+            return view('articles.edit', compact( 'findarticle','categories'));
+        }
     }
 
     /**
@@ -109,7 +113,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if (\Auth::check()) {
+            Article::find($id)->update($request->all());
+            return redirect()->intended('admin')->with('success', 'Article edited');
+        } else {
+            return redirect()->intended('login');
+        }
+
     }
 
     /**
@@ -120,9 +131,12 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-     $article = Article::findOrFail( $id );
-     $article->delete($id);
-     return redirect()->back()->with('success','Member deleted');
-
+        if (\Auth::check()) {
+            $article = Article::findOrFail($id);
+            $article->delete($id);
+            return redirect()->back()->with('success', 'Member deleted');
+        } else {
+            return redirect()->intended('login');
+        }
     }
 }

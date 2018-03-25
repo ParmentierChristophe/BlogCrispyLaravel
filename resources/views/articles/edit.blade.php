@@ -25,12 +25,14 @@
                      col-md-12
                      col-lg-6">
      <div class="box-form">
-       <form class="create-article-form" action="{{action('ArticleController@store')}}" method="post">
+       <form class="create-article-form" action="{{ action('ArticleController@update', $findarticle->id )}}" method="post">
          @csrf
          <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-         <input class="title-input-create" type="text" name="title" placeholder="+ Title">
-         <textarea id="note" class="content-input-create" type="textarea" placeholder="Content" name="content"></textarea>
+         <input class="title-input-create" type="text" name="title" value="{{$findarticle->title}}" placeholder="+ Title">
+         <textarea id="note" class="content-input-create" type="textarea" placeholder="Content" name="content">{{$findarticle->content}}</textarea>
           <div class="">
+            <p class="{{$findarticle->categorie->title}} ">#{{$findarticle->categorie->title}}</p>
+
             <label>Select Category : </label>
             <select name="categorie_id">
               @foreach($categories as $categorie)
