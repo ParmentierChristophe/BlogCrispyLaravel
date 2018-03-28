@@ -24,7 +24,8 @@ Simple personal blog created with laravel. you can see the front-end [here](http
 * Flexboxgrid
 * Laravel-Markdown
 * Fontawesome
-
+* image.intervention.io
+* laravel-newsletter
 
 ### Features ###
 
@@ -48,10 +49,5 @@ Simple personal blog created with laravel. you can see the front-end [here](http
 ![4](https://user-images.githubusercontent.com/13301795/37537043-a7079b24-294c-11e8-941b-4126b779e1e4.png)
 
 ### Todos ###
-* add newsletter solution
-* Complete user migration
-* 404 page
-* connection page
-* admin page with all articles
-* form for create a new article on markdown
+* Create middleware
 * And more ...
