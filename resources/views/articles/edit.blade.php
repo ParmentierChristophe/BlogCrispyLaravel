@@ -43,7 +43,7 @@
             </select>
           </div>
 
-         <input class="submit-article" type="submit" value="Poster">
+         <input class="submit-edit-profile" type="submit" value="Edit">
 
        </form>
      </div>

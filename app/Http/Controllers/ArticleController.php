@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categorie;
 use App\User;
-
 use App\Article;
 
 class ArticleController extends Controller
@@ -95,17 +94,25 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        $user = \Auth::user();
+        $post = Article::find($id);
         if (\Auth::check()) {
-            $categories = Categorie::all();
+            if ($user->can('update', $post)) {
+                $categories = Categorie::all();
 
-            $findarticle = Article::find($id);
+                $findarticle = Article::find($id);
 
-            return view('articles.edit', compact( 'findarticle','categories'));
+                return view('articles.edit', compact('findarticle', 'categories'));
+            } else {
+                return view('errors.404');
+            }
+        } else {
+            return redirect()->intended('login');
         }
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storagema.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -113,14 +120,15 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = \Auth::user();
+        $post = Article::find($id);
 
         if (\Auth::check()) {
-            Article::find($id)->update($request->all());
-            return redirect()->intended('admin')->with('success', 'Article edited');
-        } else {
-            return redirect()->intended('login');
+            if ($user->can('update', $post)) {
+                Article::find($id)->update($request->all());
+                return redirect()->intended('admin')->with('success', 'Article edited');
+            }
         }
-
     }
 
     /**
@@ -134,7 +142,7 @@ class ArticleController extends Controller
         if (\Auth::check()) {
             $article = Article::findOrFail($id);
             $article->delete($id);
-            return redirect()->back()->with('success', 'Member deleted');
+            return redirect()->back()->with('success', 'Article deleted');
         } else {
             return redirect()->intended('login');
         }
