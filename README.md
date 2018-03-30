@@ -50,4 +50,5 @@ Simple personal blog created with laravel. you can see the front-end [here](http
 
 ### Todos ###
 * Create middleware
+* refacto all controller and routes
 * And more ...

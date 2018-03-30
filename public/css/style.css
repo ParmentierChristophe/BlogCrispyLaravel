@@ -804,7 +804,6 @@ margin: 0 auto;
 .img-edit-profile
 {
  max-width: 200px;
- height: auto;
  border-radius:100%;
 }
 
@@ -956,6 +955,10 @@ background-color: #F5F3F7;
 font-size: 1.3em;
 font-weight: 700;
 padding: 0.2em;
+}
+
+.emoji {
+  width: 24px;
 }
 
 

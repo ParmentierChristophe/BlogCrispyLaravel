@@ -121,6 +121,7 @@ return [
 
     'providers' => [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        AltThree\Emoji\EmojiServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
